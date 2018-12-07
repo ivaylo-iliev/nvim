@@ -1,4 +1,29 @@
-call plug#begin('~/.local/share/nvim/plugged')
+
+"*****************************************************************************
+"" Vim-PLug core
+"*****************************************************************************
+if has('vim_starting')
+  set nocompatible               " Be iMproved
+endif
+
+let vimplug_exists=expand('~/.config/nvim/autoload/plug.vim')
+
+let g:vim_bootstrap_langs = "javascript,php,python,ruby"
+let g:vim_bootstrap_editor = "nvim"				" nvim or vim
+
+" Ensure auto installation of vim-plug for new neovim installations
+if !filereadable(vimplug_exists)
+  echo "Installing Vim-Plug..."
+  echo ""
+  silent !\curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
+  let g:not_finish_vimplug = "yes"
+
+  autocmd VimEnter * PlugInstall
+endif
+
+" Required:
+call plug#begin(expand('~/.config/nvim/plugged'))
+
 
 " This language client actually makes use of a binary, hence the `install.sh`.
 " We also need the `next` branch in order to specify
