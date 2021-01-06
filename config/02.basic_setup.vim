@@ -20,7 +20,7 @@ set ts=2
 set sw=2
 set ai
 set pastetoggle=<F2>
-colorscheme dracula
+"colorscheme dracula
 
 " Setup arrow window navigation
 nmap <silent> <A-Up> :wincmd k<CR>
